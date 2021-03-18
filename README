@@ -1,0 +1,25 @@
+REST service transformnumber
+----------------------------
+
+A service that:
+- takes param "number" - string of digits
+- performs transformation in following order:
+  - digits 0..3 shifts one place to the right
+  - digits 8 and 9 multiplies by 2
+  - digits 7 cleans
+  - counts number of even digits in the final number
+  - final number divides by this count
+  - result rounds down to whole number
+
+Example:
+  43256791 -> 11331545
+
+Maven build and run:
+  ./mvnw spring-boot:run
+
+or
+  ./mvnw clean package
+  java -jar target/transform-number-rest-0.0.1-SNAPSHOT.jar
+
+Test service:
+  http://localhost:8080/transformnumber?number=43256791
